@@ -7,6 +7,14 @@
     "group:allDigest",
     "group:allNonMajor"
   ],
+  "hostRules": [
+    {
+      "hostType": "npm",
+      "matchHost": "https://npm.pkg.github.com/",
+      "token": "{{ secrets.READ_PACKAGES }}"
+    }
+  ],
+  "npmrc": "@wattmaven:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=${NPM_TOKEN}",
   "timezone": "Pacific/Auckland",
   "schedule": [
     "before 5am on Sunday"
