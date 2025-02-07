@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":semanticCommits",
+    "npm:unpublishSafe",
+    "group:allDigest",
+    "group:allNonMajor",
+    ":enableVulnerabilityAlerts",
+    ":timezone(Pacific/Auckland)"
+  ],
+  "timezone": "Pacific/Auckland",
+  "schedule": ["before 5am on Sunday"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Automatically merge minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "description": "Prioritize security updates",
+      "matchSecurityAdvisories": ["high", "critical"],
+      "prPriority": 1,
+      "labels": ["security-update"]
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@wattmaven/developers"],
+    "schedule": "at any time"
+  },
+  "stabilityDays": 3,
+  "dependencyDashboard": true,
+  "rebaseWhen": "behind-base-branch"
+}
