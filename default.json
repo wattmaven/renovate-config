@@ -35,7 +35,9 @@
     "assignees": ["@wattmaven/developers"],
     "schedule": "at any time"
   },
+  "reviewersFromCodeOwners": true,
   "stabilityDays": 3,
   "dependencyDashboard": true,
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "prConcurrentLimit": 5
 }
